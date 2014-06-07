@@ -18,4 +18,6 @@ shift
 
 if (whatis -p $sc > /dev/null) {
 	$sc $*
+} else {
+	usage
 }
