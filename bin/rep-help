@@ -1,0 +1,10 @@
+#!/usr/bin/env rc
+
+printf 'usage:\n'
+printf ' rep <command> [...]\n'
+printf '\n'
+
+printf 'commands:\n'
+for (c in `{ whatis -p rep }^-*) {
+	basename $c | sed 's/-/ /' | sed 's/^/ /'
+}

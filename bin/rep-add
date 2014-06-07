@@ -1,0 +1,13 @@
+#!/usr/bin/env rc
+
+if (! ~ $#* 2) {
+	printf 'usage: rep-add <name> <version>\n'
+	exit
+}
+
+lib = $1
+version = $2
+
+echo $lib -v $version >> .gems
+
+printf 'added: %s\n' $lib

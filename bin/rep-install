@@ -1,0 +1,14 @@
+#!/usr/bin/env rc
+
+# Usage: rep-install
+if (! ~ $#* 0) {
+	printf 'usage: rep-install\n'
+	exit
+}
+
+if (! test -f .gems) {
+	printf 'failed: .gems file is missing\n'
+	exit 1
+}
+
+cat .gems | sed 's/-v//' | xargs -n 2 rep-fetch

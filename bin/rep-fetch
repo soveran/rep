@@ -1,0 +1,13 @@
+#!/usr/bin/env rc
+
+# Usage: rep-fetch <name> <version>
+
+if (! ~ $#* 2) {
+	printf 'usage: rep-fetch <name> <version>\n'
+	exit
+}
+
+lib = $1
+version = $2
+
+gem install $lib -v $version

@@ -1,0 +1,21 @@
+#!/usr/bin/env rc
+
+fn usage {
+	rep-help
+	exit 1
+}
+
+# Usage: rep <command>
+if (~ $#* 0) {
+	usage
+}
+
+# Build command.
+sc = rep-$1
+
+# Discard first argument.
+shift
+
+if (whatis -p $sc > /dev/null) {
+	$sc $*
+}
